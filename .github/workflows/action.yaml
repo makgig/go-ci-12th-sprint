@@ -13,12 +13,12 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Run Unit Tests
-        run: GOOS=linux GOARCH=amd64 go test
-
       - name: Vet
         run: |
-          go vet ./... 
+          go vet ./...
+
+      - name: Run Unit Tests
+        run: GOOS=linux GOARCH=amd64 go test
 
   delivery:
     name: Push Docker image to Docker Hub
